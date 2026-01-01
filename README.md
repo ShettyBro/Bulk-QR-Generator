@@ -25,6 +25,16 @@ Common use cases include:
 
 ---
 
+## 🤔 Why Use This Tool?
+
+- Designed specifically for **large-scale bulk generation**
+- Guarantees **unique codes** using collision prevention
+- Produces **print-quality QR images**
+- Prevents memory overload using batch processing
+- Simple and dependency-light Node.js setup
+
+---
+
 ## ✨ Features
 
 - Bulk generation of **thousands of unique QR codes**
@@ -93,7 +103,7 @@ npm install
 ### 3️⃣ Generate QR Codes
 
 ```bash
-node generate-codes.js 
+node generate-codes.js
 ```
 
 ---
@@ -127,17 +137,34 @@ Edit `generate-codes.js`:
 
 ```js
 const CONFIG = {
-  totalCodes: 8000, // Total unique codes to generate
-  prefix: 'Prefix',// Code prefix
-  codeLength: 8, // Total length of the code including prefix
-  imageSize: 600, // QR code image size in pixels
-  imageFormat: 'png', // Image file format
-  errorCorrectionLevel: 'H', // High error correction (30%)
-  outputFolder: 'qr_codes', // Output folder for QR code images
-  csvFile: 'qr_codes.csv' // Output CSV file name
+  totalCodes: 8000,           // Total unique codes to generate
+  prefix: 'PREFIX',           // Code prefix
+  codeLength: 8,              // Total code length
+  imageSize: 600,             // QR code size in pixels
+  imageFormat: 'png',         // Output image format
+  errorCorrectionLevel: 'H',  // High error correction (30%)
+  outputFolder: 'qr_codes',   // Output folder
+  csvFile: 'qr_codes.csv'     // CSV file name
 };
-
 ```
+
+---
+
+## 🔁 Customization Examples
+
+- Change the prefix for different environments (DEV / PROD)
+- Increase `totalCodes` for larger datasets
+- Reduce `imageSize` for digital-only workflows
+- Use separate output folders per project
+
+---
+
+## 🔐 Uniqueness & Reliability
+
+- Uses an in-memory `Set` to prevent duplicate codes
+- Automatically retries generation on collision
+- Fails safely if uniqueness cannot be guaranteed
+- QR error correction supports up to **30% damage recovery**
 
 ---
 
@@ -151,23 +178,56 @@ const CONFIG = {
 
 ---
 
+## ⚠️ Limitations
+
+- Not intended for cryptographic or security tokens
+- Not designed for real-time QR generation APIs
+- Extremely large datasets (>100k) may require tuning
+
+---
+
 ## 🛠️ Troubleshooting
 
 ```
-Issue: "Cannot find module 'qrcode'"
-Solution: Run npm install first
+Issue: Cannot find module 'qrcode'
+Solution: Run npm install
 
 Issue: Generation is slow
-Normal! Generating 8,000 high-quality QR codes takes 10-15 minutes.
+This is expected for high-quality bulk generation.
 
 Issue: Out of memory error
-Solution: The script processes in batches of 100 to avoid memory issues. If still happening, reduce batchSize in the code from 100 to 50.
+Reduce batch size in the script (e.g., 100 → 50).
 
 Issue: Need to regenerate codes
-Solution:
-        Delete qr_codes/ folder and qr_codes.csv
-        Run script again
-        New random codes will be generated
+Delete qr_codes/ and qr_codes.csv, then rerun the script.
 ```
 
 ---
+
+## 🚧 Future Improvements
+
+- TypeScript support
+- Environment-based configuration
+- Optional JSON export
+- Docker support
+- npm CLI distribution
+
+---
+
+## 🤝 Contributing
+
+Pull requests and improvements are welcome.  
+Please ensure changes are tested and documented.
+
+---
+
+## 📜 License
+
+MIT License
+
+---
+
+## 👤 Maintainer
+
+Bulk QR Code Generator  
+Reusable Node.js utility for large-scale QR code generation
