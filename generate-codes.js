@@ -7,14 +7,14 @@ const cliProgress = require('cli-progress');
 // CONFIGURATION
 // ============================================
 const CONFIG = {
-  totalCodes: 8000,
-  prefix: 'AIT',
-  codeLength: 8, // AIT + 5 characters = 8 total
-  imageSize: 600, // 600x600 pixels for high quality
-  imageFormat: 'png',
-  errorCorrectionLevel: 'H', // High (30% recovery)
-  outputFolder: 'qr_codes',
-  csvFile: 'qr_codes.csv'
+  totalCodes: 8000, // Total unique codes to generate
+  prefix: 'Prefix',// Code prefix
+  codeLength: 8, // Total length of the code including prefix
+  imageSize: 600, // QR code image size in pixels
+  imageFormat: 'png', // Image file format
+  errorCorrectionLevel: 'H', // High error correction (30%)
+  outputFolder: 'qr_codes', // Output folder for QR code images
+  csvFile: 'qr_codes.csv' // Output CSV file name
 };
 
 // ============================================
