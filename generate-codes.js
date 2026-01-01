@@ -29,19 +29,19 @@ function getRandomChar() {
   return chars.charAt(Math.floor(Math.random() * chars.length));
 }
 
-/**
- * Generates a unique 8-digit code with AIT prefix
- * Format: AIT + 5 random alphanumeric characters
- */
+
+// Generates a unique code with the specified prefix
+
+
 function generateUniqueCode(existingCodes) {
   let code;
   let attempts = 0;
   const maxAttempts = 100;
   
   do {
-    // Generate 5 random characters
+    // Generate 5 random characters to complete the code
     let randomPart = '';
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < CONFIG.codeLength - CONFIG.prefix.length; i++) { 
       randomPart += getRandomChar();
     }
     code = CONFIG.prefix + randomPart;
@@ -111,11 +111,11 @@ function saveToCSV(codes) {
 // ============================================
 
 async function generateQRCodes() {
-  console.log('\n🎯 VTU Fest 2026 - QR Code Generator');
+  console.log('\n🎯 QR Code Generator');
   console.log('=====================================\n');
   console.log(`📦 Configuration:`);
   console.log(`   - Total codes: ${CONFIG.totalCodes}`);
-  console.log(`   - Code format: ${CONFIG.prefix}XXXXX (8 characters)`);
+  console.log(`   - Code format: ${CONFIG.prefix}XXXXX (${CONFIG.codeLength} characters)`);
   console.log(`   - Image size: ${CONFIG.imageSize}x${CONFIG.imageSize} pixels`);
   console.log(`   - Error correction: ${CONFIG.errorCorrectionLevel} (30% recovery)`);
   console.log(`   - Output folder: ${CONFIG.outputFolder}/`);
