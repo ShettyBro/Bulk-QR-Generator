@@ -1,0 +1,16 @@
+{
+  "name": "fest-qr-generator",
+  "version": "1.0.0",
+  "description": "Generate 8000 unique QR codes for VTU Fest 2026",
+  "main": "generate-codes.js",
+  "scripts": {
+    "generate": "node generate-codes.js"
+  },
+  "keywords": ["qr", "generator", "fest"],
+  "author": "VTU Fest Team",
+  "license": "MIT",
+  "dependencies": {
+    "qrcode": "^1.5.3",
+    "cli-progress": "^3.12.0"
+  }
+}
