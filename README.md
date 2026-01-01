@@ -221,13 +221,3 @@ Please ensure changes are tested and documented.
 
 ---
 
-## 📜 License
-
-MIT License
-
----
-
-## 👤 Maintainer
-
-Bulk QR Code Generator  
-Reusable Node.js utility for large-scale QR code generation
