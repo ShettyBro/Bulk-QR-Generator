@@ -1,0 +1,1 @@
+# Bulk-QR-Generator-
